@@ -1,0 +1,116 @@
+{%extends 'uhack_project/base.html'%}
+{%load staticfiles%}
+{%block content%}
+<ul id="mobile-nav" class="side-nav fixed">
+    <li class="logo">
+        <img alt="LOGO" src="{% static "uhack_project/img/logo.jpg" %}">
+</ul>
+<h5 style="padding-top: 0px, margin-bottom: 3px">Sign Up</h5>
+<div class="row">
+    <form class="col s12" method="post">
+        {%csrf_token%}
+        <h6>Personal details</h6>
+        <div class="row">
+            <div class="input-field col s4 m4 l4">
+                <i class="material-icons prefix">account_circle</i>
+                <label>First Name</label>
+                {{userform.first_name}}
+                {{userform.first_name.errors}}
+            </div>
+            <div class="input-field col s4 m4 l4">
+                <i class="material-icons prefix">account_circle</i>
+                <label for="lname">Last Name</label>
+                {{userform.last_name}}
+                {{userform.last_name.errors}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s4 m4 l4">
+                <i class="material-icons prefix">contact_phone</i>
+                <label for="phone">Phone</label>
+                {{profileform.contact_number}}
+                {{profileform.contact_number.errors}}
+            </div>
+            <div class="input-field col s4 m4 l4">
+                <i class="material-icons prefix">star</i>
+                <label for="gender">Gender Preference (MALE/FEMALE)</label>
+                {{profileform.gender}}
+                {{profileform.gender.errors}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s4 m4 l4">
+                <i class="material-icons prefix">location_on</i>
+                <label for="street">Street</label>
+                {{profileform.street}}
+                {{profileform.street.errors}}
+            </div>
+            <div class="input-field col s4 m4 l4">
+                <i class="material-icons prefix">location_on</i>
+                <label for="city">City</label>
+                {{profileform.city}}
+                {{profileform.city.errors}}
+            </div>
+            <div class="input-field col s4 m4 l4">
+                <i class="material-icons prefix">location_on</i>
+                <label for="province">Province</label>
+                {{profileform.province}}
+                {{profileform.province.errors}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s4 m4 l4">
+                <i class="material-icons prefix">location_on</i>
+                <label for="country">Country</label>
+                {{profileform.country}}
+                {{profileform.country.errors}}
+            </div>
+            <div class="input-field col s4 m4 l4">
+                <i class="material-icons prefix">location_on</i>
+                <label for="postal">Postal Code</label>
+                {{profileform.postal_code}}
+                {{profileform.postal_code.errors}}
+            </div>
+            <div class="input-field col s4 m4 l4">
+                <i class="material-icons prefix">email</i>
+                <label for="email">Email</label>
+                {{userform.email}}
+                {{userform.email.errors}}
+            </div>
+        </div>
+
+        <h6>Account details</h6>
+        <div class="row">
+            <div class="input-field col s4 m4 l4">
+                <label for="username">Username</label>
+                {{userform.username}}
+                {{userform.username}}
+            </div>
+            <div class="input-field col s4 m4 l4">
+                <i class="material-icons prefix">lock</i>
+                <label for="password">Password</label>
+                {{userform.password1}}
+                {{userform.password1}}
+            </div>
+            <div class="input-field col s4 m4 l4">
+                <i class="material-icons prefix">done</i>
+                <label for="passwordconf">Confirm Password</label>
+                {{userform.password2}}
+                {{userform.password2}}
+            </div>
+        </div>
+        <div class="row center">
+            <div class="col s12 m12 l12">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Sign Up
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+{%endblock content%}
