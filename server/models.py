@@ -24,14 +24,15 @@ class Person(models.Model):
     user_type = models.IntegerField(
             choices=USER_TYPE_CHOICES,
             default=REGULAR_MEMBER)
-    gender = models.SmallIntegerField(choices=GENDER_CHOICES, default=MALE)
-    street = models.CharField(blank=False, max_length=100)
-    country = models.CharField(blank=False, max_length=60)
-    province = models.CharField(blank=False, max_length=50)
     city = models.CharField(blank=False, max_length=50)
-    postal_code = models.CharField(blank=False, max_length=20)
-    picture = models.ImageField(upload_to='pictures')
+    contact_number = models.CharField(max_length=12, blank=True)
+    country = models.CharField(blank=False, max_length=60)
+    gender = models.SmallIntegerField(choices=GENDER_CHOICES, default=MALE)
     member_since = models.DateField(auto_now_add=True)
+    picture = models.ImageField(upload_to='pictures')
+    postal_code = models.CharField(blank=False, max_length=20)
+    province = models.CharField(blank=False, max_length=50)
+    street = models.CharField(blank=False, max_length=100)
 
     def address(self):
         address = [self.street, self.city, self.province, self.postal_code, self.country]
