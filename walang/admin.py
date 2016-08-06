@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from server import models
+from walang import models
 
 
 @admin.register

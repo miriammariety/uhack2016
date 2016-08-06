@@ -37,11 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    'walang'
-=======
-    'server'
->>>>>>> master
+    'walang',
+    'uhack_project'
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -6,4 +6,6 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'$', views.WalangHomeView.as_view(), name='home')
+
+
 ]
