@@ -1,11 +1,11 @@
 {%extends 'uhack_project/base.html'%}
-{% load staticfiles %}
+{% load static %}
 {%block title%} Home | WALANG {%endblock title%}
 
 {%block content%}
 <ul id="mobile-nav" class="side-nav fixed">
     <li class="logo">
-        <img alt="LOGO" src="http://placehold.it/200x150">
+		<img alt="LOGO" src="{% static "uhack_project/img/logo.jpg" %}">
     </li>
     <div class="center">
         <h6>SERVICES OFFERED</h6>
