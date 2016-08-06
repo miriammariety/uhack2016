@@ -45,15 +45,14 @@ class Person(models.Model):
     marital_status = models.SmallIntegerField(choices=MARITAL_STATUS_CHOICES,
                                               default=SINGLE)
     bio = models.TextField(max_length=300)
-    requests = models.ManyToManyField('Service', through='Request',
-                                      through_fields=('requester', 'service'))
+    services = models.ManyToManyField('Service', through='Rate', related_name='offerers')
 
     def address(self):
         address = [self.street, self.city, self.province, self.postal_code, self.country]
         return ', '.join(address)
 
-    def reputation(self):
-        return self.requests.through.objects.filter(positive_feedback=True).count()
+    def __unicode__(self):
+        return self.user.get_full_name()
 
 
 class Request(models.Model):
@@ -65,8 +64,7 @@ class Request(models.Model):
         (PENDING, 'Pending'),
         (ACCEPTED, 'Accepted')
     )
-    service = models.ForeignKey('Service')
-    worker = models.ForeignKey('Person', related_name='works_for')
+    rate = models.ForeignKey('Rate', related_name='requests')
     requester = models.ForeignKey('Person', related_name='request')
     date_requested = models.DateField(auto_now_add=True)
     date_completed = models.DateField(blank=True, null=True)
@@ -75,7 +73,26 @@ class Request(models.Model):
     positive_feedback = models.NullBooleanField(blank=True, null=True)
     payable = models.DecimalField(default=0, decimal_places=2, max_digits=10)
 
+    @property
+    def service(self):
+        return self.rate.service
+
+    @property
+    def worker(self):
+        return self.rate.worker
+
+
+class Rate(models.Model):
+    service = models.ForeignKey('Service', related_name='rates')
+    worker = models.ForeignKey('Person', related_name='rates')
+    rate = models.DecimalField(default=0, decimal_places=2, max_digits=10)
+
+    def __unicode__(self):
+        return str(self.rate)
+
 
 class Service(models.Model):
     name = models.CharField(blank=False, max_length=30)
-    workers = models.ManyToManyField('Person', related_name='services', blank=True, null=True)
+
+    def __unicode__(self):
+        return self.name
