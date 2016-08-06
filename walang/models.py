@@ -54,6 +54,14 @@ class Person(models.Model):
     def __unicode__(self):
         return self.user.get_full_name()
 
+    @property
+    def get_full_name(self):
+        return self.user.get_full_name()
+
+    @property
+    def email(self):
+        return self.user.email
+
 
 class Request(models.Model):
     DONE = 1

@@ -5,7 +5,7 @@ from walang import models
 
 @admin.register(models.Person)
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ('user', 'user_type')
+    list_display = ('get_full_name', 'user', 'user_type', 'email')
 
 @admin.register(models.Request)
 class RequestAdmin(admin.ModelAdmin):
