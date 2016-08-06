@@ -28,3 +28,27 @@ var Search = function() {
 }();
 
 Search.init();
+
+
+var Pageswap = function() {
+	var init = function() {
+		$('#mobile-nav .service a').on('click', function(e) {
+			var service = $(e.target).html();
+			$.ajax({
+				url: ROOT_URL + 'services/' + service,
+				success: function(data) {
+					var main = $('#content-container'),
+					mainParent = main.parent();
+					main.detach().html(data);
+					mainParent.append(main);
+				}
+			});
+		});
+	}
+
+	return {
+		init: init
+	}
+}();
+
+Pageswap.init();
