@@ -12,3 +12,6 @@ class WalangHomeView(TemplateView):
         context['person'] = self.request.user.person
         return context
 
+
+class WelcomeView(TemplateView):
+    template_name = "walang/index.html"

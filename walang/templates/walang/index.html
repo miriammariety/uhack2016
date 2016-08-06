@@ -1,65 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-  	<link rel="stylesheet" type="text/css" href="home.css">
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>Project Name</title>
-	<meta charset="UTF-8">
-</head>
-<body id="welcome">
+{%extends 'uhack_project/base.html'%}
+{%load staticfiles%}
+{%block title%} Welcome | {%endblock title%}
+{%block css%}
+<link href="{% static 'walang/css/font-awesome.min.css' %}" type="text/css" rel="stylesheet" media="screen,projection">
+{%endblock css%}
 
+{%block content%}
+<div id="welcome-content">
+    <h3 class="greeting">Welcome to</h3>
+    <h2 class="greeting">Project Name</h2>
+    <a class="waves-effect waves-light teal lighten-5 btn modal-trigger" href="#modal1" id="modal">LOGIN HERE</a>
+    <p>Not a member? <a href="#!" id="register">Register.</a></p>
+</div>
 
-  <div class="navbar-fixed">
-    <nav id="bar">
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo"><img src="logo.png" id="logo"></a>
-      </div>
-    </nav>
-  </div>
-
-  <div id="welcome-content">
-  	<h3 class="greeting">Welcome to</h3>
-  	<h2 class="greeting">Project Name</h2>
-  	<a class="waves-effect waves-light teal lighten-5 btn modal-trigger" href="#modal1" id="modal">LOGIN HERE</a>
-  	<p>Not a member? <a href="#!" id="register">Register.</a></p>  	
-  </div>
-
-  
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Log In</h4>
-       <div class="row" id="inputs">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Username</label>
+        <h4>Log In</h4>
+        <div class="row" id="inputs">
+            <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Username</label>
+            </div>
         </div>
-      </div>
-       <div class="row" id="inputs">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
+        <div class="row" id="inputs">
+            <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
         </div>
-      </div>
 
     </div>
     <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons prefix" id="search-icon">send</i></a>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons prefix" id="search-icon">send</i></a>
     </div>
-  </div>
-
-
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-<script type="text/javascript">
-	 $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
-  });
-</script>
-</body>
-</html>
+</div>
+{%endblock content%}
+{%block script%}
+<script type="text/javascript" src="{% static "uhack_project/js/jquery-3.1.0.min.js" %}"></script>
+{%endblock script%}
