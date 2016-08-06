@@ -46,8 +46,7 @@ class Person(models.Model):
                                               default=SINGLE)
     bio = models.TextField(max_length=300)
     requests = models.ManyToManyField('Service', through='Request',
-                                      through_fields=('service', 'requester'),
-                                      related_name='requester')
+                                      through_fields=('requester', 'service'))
 
     def address(self):
         address = [self.street, self.city, self.province, self.postal_code, self.country]
@@ -56,11 +55,11 @@ class Person(models.Model):
 
 class Request(models.Model):
     service = models.ForeignKey('Service')
-    worker = models.ForeignKey('Person')
-    requester = models.ForeignKey('Person')
+    worker = models.ForeignKey('Person', related_name='works_for')
+    requester = models.ForeignKey('Person', related_name='request')
     date_requested = models.DateField(auto_now_add=True)
 
 
-class Service(model.Model):
+class Service(models.Model):
     name = models.CharField(blank=False, max_length=30)
-    workers = models.ManyToManyField(related_name='services')
+    workers = models.ManyToManyField('Person', related_name='services')
