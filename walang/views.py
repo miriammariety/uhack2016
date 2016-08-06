@@ -5,4 +5,5 @@ from walang.models import Person, Service
 class WalangHomeView(TemplateView):
     template_name = "walang/home.html"
 
-    def get_context_d
+    def get_context_data(self, *args):
+        return super(WalangHomeView, self).get_context_data(*args)
