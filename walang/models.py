@@ -77,4 +77,4 @@ class Request(models.Model):
 
 class Service(models.Model):
     name = models.CharField(blank=False, max_length=30)
-    workers = models.ManyToManyField('Person', related_name='services')
+    workers = models.ManyToManyField('Person', related_name='services', blank=True, null=True)
