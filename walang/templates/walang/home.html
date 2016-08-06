@@ -9,10 +9,16 @@
                 <i class="material-icons prefix">search</i>
                 <label>Search Services</label>
             </div>
-            <ul>
-            <!--Load categories here-->
-            </ul>
         </div>
-    </div>
+		<ul>
+			{% for service in services %}
+			<li><a href="#">{{ service }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
 </div>
 {%endblock content%}
+
+{% block javascript %}
+<script type="text/javascript" src="{% static "walang/js/app.js" %}"></script>
+{% endblock %}
