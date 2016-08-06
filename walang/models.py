@@ -35,7 +35,7 @@ class Person(models.Model):
             choices=USER_TYPE_CHOICES,
             default=REGULAR_MEMBER)
     city = models.CharField(blank=False, max_length=50)
-    contact_number = models.CharField(max_length=12, blank=True)
+    contact_number = models.CharField(max_length=12, blank=False)
     country = models.CharField(blank=False, max_length=60)
     gender = models.SmallIntegerField(choices=GENDER_CHOICES, default=MALE)
     member_since = models.DateField(auto_now_add=True)
