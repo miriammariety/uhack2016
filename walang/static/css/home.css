@@ -1,0 +1,187 @@
+html {
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    color: rgba(0,0,0,0.87);
+}
+
+#col1{
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: #B5B5B5;
+	min-height: 768px;
+}
+
+#logo-container{
+	padding-bottom: 20px;
+}
+
+#logo{
+	width: 40%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#search-icon{footer.page-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    background-color: #ee6e73;
+}
+	float: right;
+}
+
+.input-field .prefix {
+    width: 3rem;
+    font-size: 2rem;
+    transition: color .2s;
+    margin-left: 90%;
+}
+
+#search-icon{
+	cursor: pointer;
+}
+
+input:not([type]), input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="time"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="tel"], input[type="number"], input[type="search"], textarea.materialize-textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0 0 0 0;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all 0.3s;
+}
+
+#collection{
+	margin-top: 50px;
+	text-align: center;
+}
+
+#project-name{
+	padding-top: 30px;
+	padding-bottom: 38px;
+	background-color: #26a69a;
+	text-align: center;
+}
+
+#project-name h3{
+	color: #ffffff;
+}
+
+#col2{
+	padding: 0px;
+}
+
+#nav-wrapper{
+	background-color: #E8E8E8;
+}
+
+#notif-container{
+	float: right;
+	padding: 5px;
+}
+
+#prof-container{
+	float: right;
+	padding: 5px;
+}
+
+#profile{
+	color: #000000;
+}
+
+#notification{
+	color: #000000;
+}
+
+#content-container{
+	padding-top: 40px;
+	text-align: center;
+	font-size: 60px;
+}
+
+#bar{
+	background-color: #ffffff;
+}
+
+#brand-logo{
+	float: left;
+}
+
+#logo{
+	float: left;
+	height: 64px;
+	width: auto;
+}
+
+#name{
+	float: left;
+	color: #000000;
+}
+
+#welcome{
+	background-color: #26a69a;
+}
+
+#welcome-content{
+	padding-top: 70px;
+	text-align: center;
+}
+
+#modal{
+	padding-bottom: 20px;
+}
+
+#register{
+	color: #000000;
+}
+
+p{
+	margin: 0px;
+}
+
+nav ul a {
+    transition: background-color .3s;
+    font-size: 1rem;
+    color: #000;
+    display: block;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+footer.page-footer {
+    margin-top: 0px;
+    padding-top: 20px;
+    background-color: #26a69a;
+}
+
+.row {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+
+nav .brand-logo {
+    position: absolute;
+    color: #fff;
+    display: inline-block;
+    font-size: 2.1rem;
+    padding: 0;
+    white-space: nowrap;
+    padding-left: 10px;
+}
+
+.btn, .btn-large {
+    text-decoration: none;
+    color: #1c6250;
+    background-color: #26a69a;
+    text-align: center;
+    letter-spacing: .5px;
+    transition: .2s ease-out;
+    cursor: pointer;
+}
