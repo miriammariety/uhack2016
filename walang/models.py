@@ -31,9 +31,8 @@ class Person(models.Model):
     )
 
     user = models.OneToOneField(User)
-    user_type = models.SmallIntegerField(
-            choices=USER_TYPE_CHOICES,
-            default=REGULAR_MEMBER)
+    user_type = models.SmallIntegerField(choices=USER_TYPE_CHOICES,
+                                         default=REGULAR_MEMBER)
     city = models.CharField(blank=False, max_length=50)
     contact_number = models.CharField(max_length=12, blank=False)
     country = models.CharField(blank=False, max_length=60)
@@ -43,14 +42,24 @@ class Person(models.Model):
     postal_code = models.CharField(blank=False, max_length=20)
     province = models.CharField(blank=False, max_length=50)
     street = models.CharField(blank=False, max_length=100)
-    marital_status = models.SmallIntegerField(choices=MARITAL_STATUS_CHOICES, default=SINGLE)
+    marital_status = models.SmallIntegerField(choices=MARITAL_STATUS_CHOICES,
+                                              default=SINGLE)
     bio = models.TextField(max_length=300)
+    requests = models.ManyToManyField('Service', through='Request',
+                                      through_fields=('requester', 'service'))
 
     def address(self):
         address = [self.street, self.city, self.province, self.postal_code, self.country]
         return ', '.join(address)
 
 
+class Request(models.Model):
+    service = models.ForeignKey('Service')
+    worker = models.ForeignKey('Person', related_name='works_for')
+    requester = models.ForeignKey('Person', related_name='request')
+    date_requested = models.DateField(auto_now_add=True)
+
+
 class Service(models.Model):
     name = models.CharField(blank=False, max_length=30)
-    workers = models.ManyToManyField(related_name='services')
+    workers = models.ManyToManyField('Person', related_name='services')
