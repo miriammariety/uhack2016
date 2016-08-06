@@ -51,6 +51,6 @@ class Person(models.Model):
         return ', '.join(address)
 
 
-class Service(model.Model):
+class Service(models.Model):
     name = models.CharField(blank=False, max_length=30)
     workers = models.ManyToManyField(related_name='services')
