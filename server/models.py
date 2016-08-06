@@ -24,6 +24,11 @@ class Person(models.Model):
     city = models.CharField(blank=False, max_length=50)
     postal_code = models.CharField(blank=False, max_length=20)
 
-    def location(self):
+    def address(self):
         address = [self.street, self.city, self.province, self.postal_code, self.country]
         return ', '.join(address)
+
+
+class Service(model.Model):
+    name = models.CharField(blank=False, max_length=30)
+    workers = models.ManyToManyField(related_name='services')
