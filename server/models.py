@@ -44,6 +44,7 @@ class Person(models.Model):
     province = models.CharField(blank=False, max_length=50)
     street = models.CharField(blank=False, max_length=100)
     marital_status = models.SmallIntegerField(choices=MARITAL_STATUS_CHOICES, default=SINGLE)
+    bio = models.TextField(max_length=300)
 
     def address(self):
         address = [self.street, self.city, self.province, self.postal_code, self.country]
