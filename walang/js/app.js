@@ -1,1 +1,0 @@
-/home/tan/code/uhack2016/walang/static/walang/js/app.js
