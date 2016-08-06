@@ -16,6 +16,9 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	background-color: #f1f1f1;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
 .container-settings {
@@ -85,7 +88,10 @@ h4 {
 
 .footer {
 	background-color: #242323 !important;
+
 }
+
+
 
 .modal {
 	margin-top: -20px;
@@ -130,6 +136,10 @@ h4 {
 .input-field input[type=password]:focus {
 	border-bottom: 1px solid #fddd00;
 	box-shadow: 0 1px 0 0 #fddd00;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 /* SETTINGS */
