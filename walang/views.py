@@ -9,4 +9,6 @@ class WalangHomeView(TemplateView):
     def get_context_data(self, *args):
         context = super(WalangHomeView, self).get_context_data(*args)
         context['services'] = Service.objects.all()
+        context['person'] = self.request.user.person
         return context
+
