@@ -31,7 +31,7 @@ class Person(models.Model):
     )
 
     user = models.OneToOneField(User)
-    user_type = models.IntegerField(
+    user_type = models.SmallIntegerField(
             choices=USER_TYPE_CHOICES,
             default=REGULAR_MEMBER)
     city = models.CharField(blank=False, max_length=50)
