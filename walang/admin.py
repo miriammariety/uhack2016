@@ -3,7 +3,14 @@ from django.contrib import admin
 from walang import models
 
 
-@admin.register
+@admin.register(models.Person)
 class PersonAdmin(admin.ModelAdmin):
-    class Meta:
-        model = models.Person
+    pass
+
+@admin.register(models.Request)
+class RequestAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(models.Service)
+class ServiceAdmin(admin.ModelAdmin):
+    pass
