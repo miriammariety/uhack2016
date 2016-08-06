@@ -3,13 +3,15 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-class Person(models.Model):
 
+class Person(models.Model):
+    REGULAR_MEMBER = 1
+    SERVICE_PROVIDER = 2
+    ADMINISTRATOR = 3
     USER_TYPE_CHOICES = (
-        (1, 'Regular Member'),
-        (2, 'Service Provider'),
-        (3, 'Administrator')
+        (REGULAR_MEMBER, 'Regular Member'),
+        (SERVICE_PROVIDER, 'Service Provider'),
+        (ADMINISTRATOR, 'Administrator')
     )
 
     user = models.OneToOneField(User)
