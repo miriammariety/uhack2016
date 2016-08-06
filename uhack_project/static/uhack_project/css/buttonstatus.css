@@ -1,0 +1,11 @@
+.material-icons{
+    color: #9F9F9F !important;
+}
+
+.material-icons:hover{
+    color: #448aff !important;
+}
+
+.material-icons:active{
+    color: #0d47a1 !important;
+}

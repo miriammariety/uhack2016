@@ -1,0 +1,183 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	background-color: #f1f1f1;
+}
+
+.container-settings {
+	padding-top: 50px;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
+.navbar {
+	background-color: #242323;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.brand-logo {
+	margin-top: 5px;
+}
+
+.avatar {
+	padding-top: 11px;
+}
+
+.dropdown-avatar {
+	margin-top: 60px !important;
+	background-color: #242323 !important;
+	width: 150px !important;
+}
+
+.dropdown-avatar li {
+	display: inline !important;
+}
+
+.dropdown-avatar li a {
+	color: #ffffff !important;
+}
+
+.dropdown-avatar li a:hover {
+	background-color: #fddd00; /* yellow */
+	color: #ffffff;
+}
+
+.nav-wrapper {
+	background-color: #444444 !important;
+}
+
+.side-nav {
+	background-color: #242323 !important;
+}
+
+h1 {
+	font-weight: 600;
+}
+
+h4 {
+	font-weight: 300;
+}
+
+.get-started {
+	background-color: #fddd00;
+	color: #ffffff;
+}
+
+.get-started:hover {
+	background-color: #242323;
+	color: #ffffff;
+}
+
+.footer {
+	background-color: #242323 !important;
+}
+
+.modal {
+	margin-top: -20px;
+	background: #ffffff;
+	border-radius: 5px;
+	width: 30% !important;
+	max-height: 100% !important;
+	overflow-x: hidden;
+}
+
+.modal-signup, .modal-signup a {
+	font-size: 11px;
+}
+
+.modal-signup a:hover {
+	color: #fddd00;
+}
+
+
+.input-field input[type=text]:focus + label {
+    color: #fddd00;
+}
+ 
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid #fddd00;
+	box-shadow: 0 1px 0 0 #fddd00;
+}
+
+.input-field input[type=email]:focus + label {
+    color: #fddd00;
+}
+ 
+.input-field input[type=email]:focus {
+	border-bottom: 1px solid #fddd00;
+	box-shadow: 0 1px 0 0 #fddd00;
+}
+
+.input-field input[type=password]:focus + label {
+    color: #fddd00;
+}
+ 
+.input-field input[type=password]:focus {
+	border-bottom: 1px solid #fddd00;
+	box-shadow: 0 1px 0 0 #fddd00;
+}
+
+/* SETTINGS */
+
+.settings-tabs {
+	background-color: #363636;
+}
+
+.tabs {
+	background-color: #363636;
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+ul.tabs > li.tab > a {
+    color: #fff;
+    font-weight: 600;
+}
+
+ul.tabs > li.tab > a:hover {
+    color: #fddd00;
+    font-weight: 600;
+}
+
+
+ul.tabs > div.indicator {
+    height: 5px;
+    background-color: #fddd00;
+}
+
+.parallax-container{
+	height: 300px;
+	width: 100%
+}
+
+
+
+.image-card {
+	width: 130px;
+	height: 130px;
+}
+
+.remove {
+	margin-top: 5px;
+}
+
+
+#page-label{
+	font-size: x-large;
+}
