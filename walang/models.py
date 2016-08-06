@@ -73,6 +73,7 @@ class Request(models.Model):
     status = models.SmallIntegerField(choices=STATUS_CHOICES, default=PENDING)
     feedback = models.TextField(blank=True)
     positive_feedback = models.NullBooleanField(blank=True, null=True)
+    payable = models.DecimalField(default=0, decimal_places=2, max_digits=10)
 
 
 class Service(models.Model):
