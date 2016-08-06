@@ -65,7 +65,7 @@ body {
 }
 
 .side-nav {
-	background-color: #242323 !important;
+	background-color: #f1f1f1 !important;
 }
 
 h1 {
@@ -177,6 +177,15 @@ ul.tabs > div.indicator {
 }
 
 
+header, main, footer {
+  padding-left: 300px;
+}
+
+@media only screen and (max-width: 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
 
 .image-card {
 	width: 130px;
@@ -190,4 +199,31 @@ ul.tabs > div.indicator {
 
 #page-label{
 	font-size: x-large;
+}
+
+.side-nav {
+  background-color: white;
+}
+
+li.search i.material-icons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.search {
+  position: relative;
+}
+
+.logo {
+  margin-top: 20px;
+}
+
+.logo img {
+  width: 200px;
+  height: 150px;
+}
+
+#mobile-nav .waves-effect {
+  width: 100%;
 }
