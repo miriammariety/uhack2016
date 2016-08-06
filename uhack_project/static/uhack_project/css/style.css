@@ -113,6 +113,7 @@ h4 {
 
 .input-field input[type=text]:focus + label {
     color: #fddd00;
+    display: none;
 }
  
 .input-field input[type=text]:focus {
@@ -122,6 +123,7 @@ h4 {
 
 .input-field input[type=email]:focus + label {
     color: #fddd00;
+    display: none;
 }
  
 .input-field input[type=email]:focus {
@@ -131,6 +133,7 @@ h4 {
 
 .input-field input[type=password]:focus + label {
     color: #fddd00;
+    display: none;
 }
  
 .input-field input[type=password]:focus {
