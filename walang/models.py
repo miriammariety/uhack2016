@@ -52,12 +52,27 @@ class Person(models.Model):
         address = [self.street, self.city, self.province, self.postal_code, self.country]
         return ', '.join(address)
 
+    def reputation(self):
+        return self.requests.through.objects.filter(positive_feedback=True).count()
+
 
 class Request(models.Model):
+    DONE = 1
+    PENDING = 2
+    ACCEPTED = 3
+    STATUS_CHOICES = (
+        (DONE, 'Done'),
+        (PENDING, 'Pending'),
+        (ACCEPTED, 'Accepted')
+    )
     service = models.ForeignKey('Service')
     worker = models.ForeignKey('Person', related_name='works_for')
     requester = models.ForeignKey('Person', related_name='request')
     date_requested = models.DateField(auto_now_add=True)
+    date_completed = models.DateField(blank=True, null=True)
+    status = models.SmallIntegerField(choices=STATUS_CHOICES, default=PENDING)
+    feedback = models.TextField(blank=True)
+    positive_feedback = models.NullBooleanField(blank=True, null=True)
 
 
 class Service(models.Model):
