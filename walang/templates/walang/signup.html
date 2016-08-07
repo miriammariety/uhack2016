@@ -33,10 +33,10 @@
                 {{profileform.contact_number.errors}}
             </div>
             <div class="input-field col s4 m4 l4">
-                <i class="material-icons prefix">star</i>
-                <label for="gender">Gender Preference (MALE/FEMALE)</label>
-                {{profileform.gender}}
-                {{profileform.gender.errors}}
+                <i class="material-icons prefix">email</i>
+                <label for="email">Email</label>
+                {{userform.email}}
+                {{userform.email.errors}}
             </div>
         </div>
 
@@ -74,12 +74,6 @@
                 {{profileform.postal_code}}
                 {{profileform.postal_code.errors}}
             </div>
-            <div class="input-field col s4 m4 l4">
-                <i class="material-icons prefix">email</i>
-                <label for="email">Email</label>
-                {{userform.email}}
-                {{userform.email.errors}}
-            </div>
         </div>
 
         <h6>Account details</h6>
@@ -87,19 +81,19 @@
             <div class="input-field col s4 m4 l4">
                 <label for="username">Username</label>
                 {{userform.username}}
-                {{userform.username}}
+                {{userform.username.errors}}
             </div>
             <div class="input-field col s4 m4 l4">
                 <i class="material-icons prefix">lock</i>
                 <label for="password">Password</label>
                 {{userform.password1}}
-                {{userform.password1}}
+                {{userform.password1.errors}}
             </div>
             <div class="input-field col s4 m4 l4">
                 <i class="material-icons prefix">done</i>
                 <label for="passwordconf">Confirm Password</label>
                 {{userform.password2}}
-                {{userform.password2}}
+                {{userform.password2.errors}}
             </div>
         </div>
         <div class="row center">

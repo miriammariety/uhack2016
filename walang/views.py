@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, FormView, RedirectView
 from walang.models import Person, Service
-from .forms import UserForm, ProfileForm
-from django.contrib.auth import authenticate, login
+from .forms import UserForm, ProfileForm, UserLoginForm
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
+
+from django.core.urlresolvers import reverse
 
 
 
@@ -16,10 +18,6 @@ class WalangHomeView(TemplateView):
         context['services'] = Service.objects.all()
         context['person'] = self.request.user.person
         return context
-
-
-class WelcomeView(TemplateView):
-    template_name = "walang/index.html"
 
 
 class ServiceView(DetailView):
@@ -63,3 +61,36 @@ class SignUpView(TemplateView):
         return self.response_class(request=self.request, template=self.template_name, context=context, using=None,
                                    **response_kwargs)
 
+
+class LoginView(FormView):
+    template_name = 'walang/index.html'
+    form_class = UserLoginForm
+    success_view_name = 'walang:home'
+
+    def get(self, request, *args, **kwargs):
+        return super(LoginView, self).get(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        user = form.cleaned_data['user']
+        login(self.request, user)
+
+        return super(LoginView, self).form_valid(form)
+
+    def get_success_url(self):
+        next = self.request.GET.get('next')
+        if next:
+            return next
+        else:
+            return reverse(self.success_view_name)
+
+class UserLogoutView(RedirectView):
+    permanent = False
+    login_view_name = 'walang:login'
+
+    def get_redirect_url(self, *args, **kwargs):
+        return reverse(self.login_view_name)
+
+    def get(self, request, *args, **kwargs):
+        response = super(UserLogoutView, self).get(request, *args, **kwargs)
+        logout(request)
+        return response

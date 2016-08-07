@@ -24,22 +24,28 @@
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4>Log In</h4>
-                <div class="row" id="inputs">
-                    <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Username</label>
+                <form method="post" action="{%url 'walang:login'%}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="username" name="username" type="text" class="validate">
+                            <label for="username">Username</label>
+                        </div>
                     </div>
-                </div>
-                <div class="row" id="inputs">
-                    <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Password</label>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" name="password1" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
                     </div>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons prefix" id="search-icon">send</i></a>
+                    <div class="row center">
+                        <div class="col s12 m12 l12">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Log in
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
