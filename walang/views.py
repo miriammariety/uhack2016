@@ -28,6 +28,8 @@ class ServiceView(DetailView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(ServiceView, self).get_context_data(*args, **kwargs)
+        offerers = Person.objects.filter(rates__service=self.get_object())
+        context['offers'] = offerers
         return context
 
 

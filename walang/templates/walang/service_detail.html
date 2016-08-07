@@ -6,8 +6,11 @@
 </div>
 <div class="row">
   {% for offer in offers %}
-  <div class="col s4 m4 l4">
-    {{ offer }}
-  </div>
+    <div class="col s4 m4 l4 card">
+      <a href="#!">
+        <img src="{{ offer.picture.url }}">
+        {{ offer.get_full_name }}
+      </a>
+    </div>
   {% endfor %}
 </div>

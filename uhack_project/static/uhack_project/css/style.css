@@ -264,3 +264,7 @@ i.material-icons {
 #mobile-nav {
   width: 300px;
 }
+
+.card img {
+  width: 100%;
+}
