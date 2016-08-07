@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{%block title%}{%endblock title%}</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,11 +14,17 @@
     <link href="{% static 'uhack_project/css/font-awesome.min.css' %}" type="text/css" rel="stylesheet" media="screen,projection">
 </head>
 <body>
+	<div id="banner">
+		<h3>QuickSERV</h3>
+	</div>
 <nav>
     <div class="nav-wrapper">
         <a href="#"><img src=""></a>
     </div>
 </nav>
+<div class="loading">
+	<img src="{% static "uhack_project/img/spin.svg" %}">
+</div>
 <main>
     {% block content %}
     {% endblock content %}

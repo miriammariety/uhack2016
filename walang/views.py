@@ -24,6 +24,12 @@ class ServiceView(DetailView):
     model = Service
     pk_url_kwarg = 'service'
 
+    def get_context_data(self, *args, **kwargs):
+        context = super(ServiceView, self).get_context_data(*args, **kwargs)
+        offerers = Person.objects.filter(rates__service=self.get_object())
+        context['offers'] = offerers
+        return context
+
 
 class SignUpView(TemplateView):
     template_name = "walang/signup.html"

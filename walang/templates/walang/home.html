@@ -5,7 +5,7 @@
 {%block content%}
 <ul id="mobile-nav" class="side-nav fixed">
     <li class="logo">
-		<img alt="LOGO" src="{% static "uhack_project/img/logo.jpg" %}">
+        <img alt="LOGO" src="{% static "uhack_project/img/logo.jpg" %}">
     </li>
     <div class="center">
         <h6>SERVICES OFFERED</h6>
@@ -17,108 +17,111 @@
     {% for service in services %}
     <li class="service waves-effect waves-light"><a href="#!">{{ service.name }}</a></li>
     {% endfor %}
-	<hr />
-    <li class="waves-effect waves-light"><a href="#!">Settings</a></li>
+    <hr />
+
+    <li class="waves-effect waves-light settings"><a href="#!">Settings</a></li>
     <li class="waves-effect waves-light"><a href="{%url 'walang:logout'%}">Logout</a></li>
+
 </ul>
-<div class="container" id="content-container">
-	<div class="row hide" id="user-settings">
-		<div class="col s7 m7 l7 offset-s1 m1 l1">
-			<h4>Settings</h4><br>
-			<h6>Personal Details</h6>
-			<div class="row">
-				<div class="input-field col s6">
-					<input id="first_name" type="text" class="validate">
-					<label for="first_name">First Name</label>
-				</div>
-				<div class="input-field col s6">
-					<input id="last_name" type="text" class="validate">
-					<label for="last_name">Last Name</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s6">
-					<input id="contact_number" type="text" class="validate">
-					<label for="contact_number">Contact Number</label>
-				</div>
-				<div class="input-field col s6">
-					<input id="email" type="text" class="validate">
-					<label for="email">Email</label>
-				</div>
-			</div>
-			<h6>Address</h6>
-			<div class="row">
-				<div class="input-field col s6">
-					<input id="street" type="text" class="validate">
-					<label for="street">Street</label>
-				</div>
-				<div class="input-field col s6">
-					<input id="city" type="text" class="validate">
-					<label for="city">City</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s4">
-					<input id="province" type="text" class="validate">
-					<label for="province">Province</label>
-				</div>
-				<div class="input-field col s4">
-					<input id="country" type="text" class="validate">
-					<label for="country">Country</label>
-				</div>
-				<div class="input-field col s4">
-					<input id="postal_code" type="text" class="validate">
-					<label for="postal_code">Postal Code</label>
-				</div>
-			</div>
-		</div>
-		<div class="col s4 m4 l4">
-			<br><br><br><br>
-			<h6>Account Details</h6>
-			<div class="row">
-				<div>
-					{% if person.image %}
-					<img id="user_image" src="{{ person.image.url }}" alt="" class="responsive-img image-card" style="margin-left: 8px;">
-					{% else %}
-					<img id="user_image" src="{% static 'walang/img/default-avatar.jpeg' %}" alt="" style="margin-left: 8px;" class="responsive-img image-card"> <!-- notice the "circle" class -->
-					{% endif %}
-				</div>
-				<div><br>
+<div class="container" id="content-container"></div>
+<template id="user-settings-template">
+    <div class="row" id="user-settings">
+        <div class="col s7 m7 l7 offset-s1 m1 l1">
+            <h4>Settings</h4><br>
+            <h6>Personal Details</h6>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="contact_number" type="text" class="validate">
+                    <label for="contact_number">Contact Number</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="email" type="text" class="validate">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <h6>Address</h6>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="street" type="text" class="validate">
+                    <label for="street">Street</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="city" type="text" class="validate">
+                    <label for="city">City</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="province" type="text" class="validate">
+                    <label for="province">Province</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="country" type="text" class="validate">
+                    <label for="country">Country</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="postal_code" type="text" class="validate">
+                    <label for="postal_code">Postal Code</label>
+                </div>
+            </div>
+        </div>
+        <div class="col s4 m4 l4">
+            <br><br><br><br>
+            <h6>Account Details</h6>
+            <div class="row">
+                <div>
+                    {% if person.image %}
+                    <img id="user_image" src="{{ person.image.url }}" alt="" class="responsive-img image-card" style="margin-left: 8px;">
+                    {% else %}
+                    <img id="user_image" src="{% static 'walang/img/default-avatar.jpeg' %}" alt="" style="margin-left: 8px;" class="responsive-img image-card"> <!-- notice the "circle" class -->
+                    {% endif %}
+                </div>
+                <div><br>
 					<span style="display:none;">
 						<input type="file" id="{{ imageform.image.id_for_label }}">
 					</span>
-					<button id="upload-trigger" class="waves-effect waves-light get-started btn" type="submit" name="action">Upload
-						<i class="material-icons right">publish</i>
-					</button>
-					<!--</div>-->
-			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s12">
-				<input id="username" type="text" class="validate">
-				<label for="username">Username</label>
-			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s12">
-				<input id="password1" type="text" class="validate">
-				<label for="password1">Password</label>
-			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s12">
-				<input id="password2" type="text" class="validate">
-				<label for="password2">Confirm Password</label>
-			</div>
-		</div>
-		<div class="center">
-			<button class="btn waves-effect waves-light" type="submit" name="action">Submit
-				<i class="material-icons right">send</i>
-			</button>
-		</div>
-	</div>
-</div>
-</div>
+                    <button id="upload-trigger" class="waves-effect waves-light get-started btn" type="submit" name="action">Upload
+                        <i class="material-icons right">publish</i>
+                    </button>
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="username" type="text" class="validate">
+                    <label for="username">Username</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password1" type="text" class="validate">
+                    <label for="password1">Password</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password2" type="text" class="validate">
+                    <label for="password2">Confirm Password</label>
+                </div>
+            </div>
+            <div class="center">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+
+</template>
 {%endblock content%}
 
 {% block javascript %}
