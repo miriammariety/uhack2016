@@ -87,7 +87,7 @@ class Request(models.Model):
 
     @property
     def worker(self):
-        return self.rate.worker
+            return self.rate.worker
 
 
 class Rate(models.Model):
