@@ -16,3 +16,7 @@ class WalangHomeView(TemplateView):
 class ServiceView(DetailView):
     model = Service
     pk_url_kwarg = 'service'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ServiceView, self).get_context_data(*args, **kwargs)
+        return context

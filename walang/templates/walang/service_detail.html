@@ -1,1 +1,13 @@
-{{ object }}
+<div class="row">
+  <div class="col push-1 s12 m10 l8 push-m1 push-l2 card">
+    <input type="search" id="specific-search">
+    <i class="material-icons">search</i>
+  </div>
+</div>
+<div class="row">
+  {% for offer in offers %}
+  <div class="col s4 m4 l4">
+    {{ offer }}
+  </div>
+  {% endfor %}
+</div>

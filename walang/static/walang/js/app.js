@@ -35,6 +35,10 @@ var Content = function() {
 		replace = function(data) {
 			container.detach().html(data);
 			containerParent.append(container);
+		},
+		clear = function() {
+			container.detach().html("");
+			containerParent.append(container);
 		}
 
 	return {
@@ -70,10 +74,14 @@ Services.init();
 
 var Settings = function() {
 	var init = function() {
-		$('#')
+		$('#mobile-nav .settings').on('click', function() {
+			Content.replace($('#user-settings-template').html());
+		});
 	}
 
 	return {
 		init: init
 	}
 }();
+
+Settings.init();
